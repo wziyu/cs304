@@ -1,0 +1,211 @@
+    $cmdstr = "update channels set status='online' where id='$CID'";
+    executeSQL($cmdstr);
+    $cmdstr = "select count(*) from grants_privilege where streamer_username='".$streamer_name."' and moderator_username='".$promote_target."'";
+    $statement = executeSQL($cmdstr);
+    $cmdstr = "select count(*) from watches where watcher_username='".$promote_target."' and id='".$CID."'";
+    $statement = executeSQL($cmdstr);
+    $cmdstr = "select count(*) from mutes where streamer_username='".$streamer_name."' and mutee_username='".$mute_target."'";
+    $statement = executeSQL($cmdstr);
+    $cmdstr = "select count(*) from watches where watcher_username='".$mute_target."' and id='".$CID."'";
+    $statement = executeSQL($cmdstr);
+        $cmdstr = "insert into mutes values('".$uname."','".$streamer_name."','".$target."',TO_DATE('".$end_date_str."','YYYY/MM/DD HH24:MI:SS'))";
+        $statement = executeSQL($cmdstr);
+    $cmdstr = "select count(*) from mutes where mutee_username='".$unmute_target."' and streamer_username='".$streamer_name."'";
+    $statement = executeSQL($cmdstr);
+        $cmdstr = "delete from mutes where mutee_username='".$unmute_target."'";
+        $statement = executeSQL($cmdstr);
+        $cmdstr = "delete from watches where id='$CID' and watcher_username='$uname'";
+        executeSQL($cmdstr);
+        $cmdstr = "update channels set status='offline' where id='$CID'";
+        executeSQL($cmdstr);
+function exesql($cmdstr) {
+        $statement = oci_parse($db_conn, $cmdstr);
+            echo"<br>Cannot parse the following command: " . $cmdstr . "<br>";
+            echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $cmdstr = "insert into users values('$uname','$gender', sysdate, '$pwd')";
+    $statement = oci_parse($db_conn, $cmdstr);
+        echo"<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $cmdstr = "select * from channels where language='$country'";
+    $statement = oci_parse($db_conn, $cmdstr);
+        echo"<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+	//echo "<br>running ".$cmdstr."<br>";
+	$statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+function executeSQL($cmdstr) {
+        $statement = oci_parse($db_conn, $cmdstr);
+            echo"<br>Cannot parse the following command: " . $cmdstr . "<br>";
+            echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+$cmdstr = "insert into watches values('".$uname."','".$CID."')";
+executeSQL($cmdstr);
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+	//echo "<br>running ".$cmdstr."<br>";
+	$statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $cmdstr = "insert into Channels values('$username','$id','$status', '$language','$description','$title')";
+    $statement = oci_parse($db_conn, $cmdstr);
+        echo"<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $cmdstr1 = "insert into game_channels values('$id','$gamename', '$platform')";
+    $result=executeSQL($cmdstr1);
+    $cmdstr2 = "insert into show_channels values('$id','$showtype')";
+    $result=executeSQL($cmdstr2);
+function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+	//echo "<br>running ".$cmdstr."<br>";
+	$statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+function executeBoundSQL($cmdstr, $list) {
+	$statement = OCIParse($db_conn, $cmdstr);
+		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+			echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+            $cmdstr = "update users set password='$pwd' where username ='$uname'";
+            executeSQL($cmdstr);
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+	//echo "<br>running ".$cmdstr."<br>";
+	$statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+$cmdstr = "select status, id from channels where streamer_username='$uname'";
+$statement = executeSQL($cmdstr);
+$cmdstr = "select count(*) from channels where streamer_username='$uname'";
+$statement = executeSQL($cmdstr);
+    $cmdstr = "select u.username from Users u where u.username like '%$sid%'  ";
+    $statement = executeSQL($cmdstr);
+    $cmdstr = "select ID,streamer_username from Channels  where ID like '%$sid%'or streamer_username like '%$sid%'  ";
+    $statement = executeSQL($cmdstr);
+    $cmdstr = "select * from (select c.id,c.title,count(w.watcher_username) from Channels c,Watches w where c.id=w.id group by c.id,c.title ORDER BY count(w.watcher_username) desc) where rownum<=10";
+    $statement = oci_parse($db_conn, $cmdstr);
+        echo"<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $cmdstr = "select * from (select c.id,c.title,sum(d.amount) from Donations d,Channels c where c.streamer_username=d.donatee_username group by c.id,c.title ORDER BY sum(d.amount) desc) where rownum<=10";
+    $statement = oci_parse($db_conn, $cmdstr);
+        echo"<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+	//echo "<br>running ".$cmdstr."<br>";
+	$statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+	$cmdstr = "delete from mutes where endtime < TO_DATE('".$date."','YYYY/MM/DD')";
+	executeSQL($cmdstr);
+  function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+  //echo "<br>running ".$cmdstr."<br>";
+  $statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+    echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+    echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+$cmdstr = "select status from channels where streamer_username='$uname'";
+$statement = executeSQL($cmdstr);
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+	//echo "<br>running ".$cmdstr."<br>";
+	$statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+include 'execute.php';
+    executeSQL($cmdstr);
+$statement = executeSQL("select * from channels where id='$CID'");
+$statement = executeSQL("select count(id) from game_channels where id='$CID'");
+    $statement = executeSQL("select * from game_channels where id='$CID'");
+    $statement = executeSQL("select * from show_channels where id='$CID'");
+$statement = executeSQL("select count(id) from watches where id='$CID'");
+$statement = executeSQL("select count(follower_username) from follows where followee_username='$streamer_name'");
+$statement = executeSQL("select count(*) from grants_privilege where streamer_username='$streamer_name' and moderator_username='$uname'");
+    $statement = executeSQL($cmdstr);
+    $statement = executeSQL($cmdstr);
+        $statement = executeSQL("insert into grants_privilege values('".$streamer_name."','".$promote_target."')");
+    $statement = executeSQL($cmdstr);
+    $statement = executeSQL($cmdstr);
+        $statement = executeSQL($cmdstr);
+    $statement = executeSQL($cmdstr);
+        $statement = executeSQL($cmdstr);
+        executeSQL("insert into donations values ('$ord', '$uname', '$streamer_name','$amount')");
+        executeSQL("insert into follows values('$uname','$streamer_name')");
+        executeSQL("delete from follows where follower_username='$uname' and followee_username='$streamer_name'");
+$result = executeSQL("select * from follows where follower_username='$uname' and followee_username='$streamer_name'");
+        executeSQL($cmdstr);
+        executeSQL($cmdstr);
+    //connect_prepare_execute_fetch_close
+        $r = oci_execute($statement, OCI_COMMIT_ON_SUCCESS);
+            echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+//connect_prepare_execute_fetch_close
+    $r = oci_execute($statement, OCI_COMMIT_ON_SUCCESS);
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $r = oci_execute($statement, OCI_DEFAULT);
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+            $result = executePlainSQL($cmdr);
+function executeSQL($cmdstr) {
+    //connect_prepare_execute_fetch_close
+        $r = oci_execute($statement, OCI_COMMIT_ON_SUCCESS);
+            echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+executeSQL($cmdstr);
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+            $result = executePlainSQL($cmdr);
+include 'execute.php';
+include"execute.php";
+//connect_prepare_execute_fetch_close
+    $r = oci_execute($statement, OCI_COMMIT_ON_SUCCESS);
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $result=executeSQL($cmdstr1);
+    $result=executeSQL($cmdstr2);
+  This file shows the very basics of how to execute PHP commands
+function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+function executeBoundSQL($cmdstr, $list) {
+			echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+		executePlainSQL("Drop table tab1");
+		executePlainSQL("create table tab1 (nid number, name varchar2(30), primary key (nid))");
+		executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $alltuples);
+		executeBoundSQL("update tab1 set name=:bind2 where name=:bind1", $alltuples);
+		executePlainSQL("insert into tab1 values (10, 'Frank')");
+		executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
+		//executePlainSQL("update tab1 set nid=10 where nid=2");
+		//executePlainSQL("delete from tab1 where nid=1");
+		$result = executePlainSQL("select * from tab1");
+/* OCIExecute() executes a previously parsed statement
+include 'execute.php';
+$result = executeSQL("select id from channels where streamer_username='$target_name'");
+            executeSQL($cmdstr);
+        executeSQL("insert into donations values ('$ord', '$uname', '$target_name','$amount')");
+        executeSQL("insert into follows values('$uname','$target_name')");
+        executeSQL("delete from follows where follower_username='$uname' and followee_username='$target_name'");
+$result = executeSQL("select * from channels where streamer_username='$target_name'");
+$result = executeSQL("select * from follows where follower_username='$uname' and followee_username='$target_name'");
+    printResult(executeSQL("select gender from users where username='$target_name'"));
+    printResult(executeSQL("select regdate from users where username='$target_name'"));
+    printResult(executeSQL("select count(*) from follows where followee_username='$target_name'"));
+    printResult(executeSQL("select sum(amount) from donations where donater_username='$target_name'"));
+    printResult(executeSQL("select sum(amount) from donations where donatee_username='$target_name'"));
+    include "execute.php";
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+$statement = executeSQL($cmdstr);
+$statement = executeSQL($cmdstr);
+include("execute.php");
+    $statement = executeSQL($cmdstr);
+    $statement = executeSQL($cmdstr);
+include("execute.php");
+$r=executeSQL($stid);
+    $r = oci_execute($statement, OCI_COMMIT_ON_SUCCESS);
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+    $r = oci_execute($statement, OCI_COMMIT_ON_SUCCESS);
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+//connect_prepare_execute_fetch_close
+function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+	$statement=executePlainSQL($cmdr1);
+	$statement=executePlainSQL($cmdr2);
+	executeSQL($cmdstr);
+    include "execute.php";
+  function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+    echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+$statement = executeSQL($cmdstr);
+	function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
+		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+            $result = executePlainSQL($cmdr);

@@ -1,0 +1,55 @@
+update channels set status='online' where id='$CID'"
+update channels set status='offline' where id='$CID'"
+update users set password='$pwd' where username ='$uname'"
+update tab1 set name=:bind2 where name=:bind1", $alltuples)
+update tab1 set nid=10 where nid=2")
+select count(*) from grants_privilege where streamer_username='".$streamer_name."' and moderator_username='".$promote_target."'"
+select count(*) from watches where watcher_username='".$promote_target."' and id='".$CID."'"
+select count(*) from mutes where streamer_username='".$streamer_name."' and mutee_username='".$mute_target."'"
+select count(*) from watches where watcher_username='".$mute_target."' and id='".$CID."'"
+select count(*) from mutes where mutee_username='".$unmute_target."' and streamer_username='".$streamer_name."'"
+select * from channels where language='$country'"
+select status, id from channels where streamer_username='$uname'"
+select count(*) from channels where streamer_username='$uname'"
+select u.username from Users u where u.username like '%$sid%'  "
+select ID,streamer_username from Channels  where ID like '%$sid%'or streamer_username like '%$sid%'  "
+select c.id,c.title,count(w.watcher_username) from Channels c,Watches w where c.id=w.id group by c.id,c.title ORDER BY count(w.watcher_username) desc) where rownum<=10"
+select c.id,c.title,sum(d.amount) from Donations d,Channels c where c.streamer_username=d.donatee_username group by c.id,c.title ORDER BY sum(d.amount) desc) where rownum<=10"
+select status from channels where streamer_username='$uname'"
+select * from channels where id='$CID'")
+select count(id) from game_channels where id='$CID'")
+select * from game_channels where id='$CID'")
+select * from show_channels where id='$CID'")
+select count(id) from watches where id='$CID'")
+select count(follower_username) from follows where followee_username='$streamer_name'")
+select count(*) from grants_privilege where streamer_username='$streamer_name' and moderator_username='$uname'")
+select * from follows where follower_username='$uname' and followee_username='$streamer_name'")
+select * from tab1")
+select id from channels where streamer_username='$target_name'")
+select * from channels where streamer_username='$target_name'")
+select * from follows where follower_username='$uname' and followee_username='$target_name'")
+select gender from users where username='$target_name'"))
+select regdate from users where username='$target_name'"))
+select count(*) from follows where followee_username='$target_name'"))
+select sum(amount) from donations where donater_username='$target_name'"))
+select sum(amount) from donations where donatee_username='$target_name'"))
+delete from mutes where mutee_username='".$unmute_target."'"
+delete from watches where id='$CID' and watcher_username='$uname'"
+delete from mutes where endtime < TO_DATE('".$date."','YYYY/MM/DD')"
+delete from follows where follower_username='$uname' and followee_username='$streamer_name'")
+delete from tab1 where nid=1")
+delete from follows where follower_username='$uname' and followee_username='$target_name'")
+insert into mutes values('".$uname."','".$streamer_name."','".$target."',TO_DATE('".$end_date_str."','YYYY/MM/DD HH24:MI:SS'))"
+insert into users values('$uname','$gender', sysdate, '$pwd')"
+insert into watches values('".$uname."','".$CID."')"
+insert into Channels values('$username','$id','$status', '$language','$description','$title')"
+insert into game_channels values('$id','$gamename', '$platform')"
+insert into show_channels values('$id','$showtype')"
+insert into grants_privilege values('".$streamer_name."','".$promote_target."')")
+insert into donations values ('$ord', '$uname', '$streamer_name','$amount')")
+insert into follows values('$uname','$streamer_name')")
+insert into tab1 values (:bind1, :bind2)", $alltuples)
+insert into tab1 values (10, 'Frank')")
+insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
+insert into donations values ('$ord', '$uname', '$target_name','$amount')")
+insert into follows values('$uname','$target_name')")
