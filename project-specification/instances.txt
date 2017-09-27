@@ -1,0 +1,542 @@
+SQL> select * from types
+  2  ;
+
+NAME                                                                            
+------------------------------                                                  
+Comedy                                                                          
+Counter-Strike                                                                  
+DOTA 2                                                                          
+Fitness                                                                         
+GTA 5                                                                           
+Outdoors                                                                        
+Overwatch                                                                       
+Singing                                                                         
+Talking Shows                                                                   
+
+9 rows selected.
+
+SQL> select * from games;
+
+NAME                           PLATFORM                                         
+------------------------------ ------------------------------                   
+Counter-Strike                 PC                                               
+DOTA 2                         PC                                               
+GTA 5                          PS4                                              
+GTA 5                          Xbox One                                         
+Overwatch                      PC                                               
+
+SQL> select * from shows;
+
+NAME                                                                            
+------------------------------                                                  
+Comedy                                                                          
+Fitness                                                                         
+Outdoors                                                                        
+Singing                                                                         
+Talking Shows                                                                   
+
+SQL> select * from users;
+
+USERNAME                       GENDER                                           
+------------------------------ ----------                                       
+Caiyi                          male                                             
+Ventus                         male                                             
+Ziyu                           male                                             
+Taeyeon                        female                                           
+IU                             female                                           
+g1                             female                                           
+g2                             female                                           
+g3                             female                                           
+g4                             female                                           
+g5                             female                                           
+
+10 rows selected.
+
+SQL> select * from guests;
+
+USERNAME                                                                        
+------------------------------                                                  
+g1                                                                              
+g2                                                                              
+g3                                                                              
+g4                                                                              
+g5                                                                              
+
+SQL> select * from registered_users;
+
+USERNAME                       PASSWORD             NUMOFFOLLOWERS REGDATE      
+------------------------------ -------------------- -------------- --------     
+Caiyi                          pswrd                             1 16-10-18     
+Ventus                         pswrd                             1 16-10-18     
+Ziyu                           pswrd                             1 16-10-18     
+Taeyeon                        pswrd                             1 16-10-18     
+IU                             pswrd                             1 16-10-18     
+
+SQL> select * from moderators;
+
+USERNAME                                                                        
+------------------------------                                                  
+Caiyi                                                                           
+IU                                                                              
+Taeyeon                                                                         
+Ventus                                                                          
+Ziyu                                                                            
+
+SQL> select * from streamers;
+
+USERNAME                                                                        
+------------------------------                                                  
+Caiyi                                                                           
+IU                                                                              
+Taeyeon                                                                         
+Ventus                                                                          
+Ziyu                                                                            
+SQL> select * from channels;
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+Caiyi                                   1            1 banned                   
+Chinese                                                                         
+hello world                                                                     
+                                                                                
+                                                                                
+Let us play Overwatch                                                           
+                                                                                
+Overwatch                                                                       
+                                                                                
+Ventus                                  1            1 offline                  
+Chinese                                                                         
+hello world                                                                     
+                                                                                
+                                                                                
+Let us play Counter-Strike                                                      
+                                                                                
+Counter-Strike                                                                  
+                                                                                
+Ziyu                                    1            1 offline                  
+English                                                                         
+hello world                                                                     
+                                                                                
+                                                                                
+Let us play DOTA                                                                
+                                                                                
+DOTA 2                                                                          
+                                                                                
+Taeyeon                                 1            1 online                   
+Korean                                                                          
+hello world                                                                     
+                                                                                
+                                                                                
+Why                                                                             
+                                                                                
+Singing                                                                         
+                                                                                
+IU                                      1            1 online                   
+Korean                                                                          
+hello world                                                                     
+                                                                                
+                                                                                
+23                                                                              
+                                                                                
+Outdoors                                                                        
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+
+SQL> select * from watches;
+
+USER_USERNAME                  STREAMER_USERNAME                      ID        
+------------------------------ ------------------------------ ----------        
+Caiyi                          Caiyi                                   1        
+Caiyi                          IU                                      1        
+Caiyi                          Taeyeon                                 1        
+Caiyi                          Ventus                                  1        
+Caiyi                          Ziyu                                    1        
+
+
+SQL> select * from chat_messages;
+
+SENDERNAME                     STREAMER_USERNAME               CHANNELID        
+------------------------------ ------------------------------ ----------        
+TIME                                                                            
+--------                                                                        
+CONTENT                                                                         
+--------------------------------------------------------------------------------
+Caiyi                          Caiyi                                   1        
+16-10-18                                                                        
+Hello world!                                                                    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+SENDERNAME                     STREAMER_USERNAME               CHANNELID        
+------------------------------ ------------------------------ ----------        
+TIME                                                                            
+--------                                                                        
+CONTENT                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+Caiyi                          Ventus                                  1        
+16-10-18                                                                        
+Hello world!                                                                    
+                                                                                
+                                                                                
+                                                                                
+
+SENDERNAME                     STREAMER_USERNAME               CHANNELID        
+------------------------------ ------------------------------ ----------        
+TIME                                                                            
+--------                                                                        
+CONTENT                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+                                                                                
+Caiyi                          Ziyu                                    1        
+16-10-18                                                                        
+Hello world!                                                                    
+                                                                                
+                                                                                
+
+SENDERNAME                     STREAMER_USERNAME               CHANNELID        
+------------------------------ ------------------------------ ----------        
+TIME                                                                            
+--------                                                                        
+CONTENT                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+                                                                                
+                                                                                
+Caiyi                          Taeyeon                                 1        
+16-10-18                                                                        
+Hello world!                                                                    
+                                                                                
+
+SENDERNAME                     STREAMER_USERNAME               CHANNELID        
+------------------------------ ------------------------------ ----------        
+TIME                                                                            
+--------                                                                        
+CONTENT                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+Caiyi                          IU                                      1        
+16-10-18                                                                        
+Hello world!                                                                    
+
+SENDERNAME                     STREAMER_USERNAME               CHANNELID        
+------------------------------ ------------------------------ ----------        
+TIME                                                                            
+--------                                                                        
+CONTENT                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+SQL> select * from follows;
+
+FOLLOWER_NAME                  FOLLOWEE_NAME                                    
+------------------------------ ------------------------------                   
+Caiyi                          IU                                               
+Caiyi                          Taeyeon                                          
+Caiyi                          Ventus                                           
+Caiyi                          Ziyu                                             
+Ziyu                           Ventus                                           
+
+SQL> select * from mutes;
+
+MODERATOR_USERNAME             REGISTEREDUSER_USERNAME        STARTTIM          
+------------------------------ ------------------------------ --------          
+  DURATION                                                                      
+----------                                                                      
+Caiyi                          Caiyi                          16-10-18          
+        24                                                                      
+                                                                                
+Ventus                         Caiyi                          16-10-18          
+        24                                                                      
+                                                                                
+Ziyu                           Caiyi                          16-10-18          
+        24                                                                      
+                                                                                
+
+MODERATOR_USERNAME             REGISTEREDUSER_USERNAME        STARTTIM          
+------------------------------ ------------------------------ --------          
+  DURATION                                                                      
+----------                                                                      
+Taeyeon                        Caiyi                          16-10-18          
+        24                                                                      
+                                                                                
+IU                             Caiyi                          16-10-18          
+        24                                                                      
+                                                                                
+
+SQL> select * from grants_privilege;
+
+STREAMER_USERNAME              MODERATOR_USERNAME                               
+------------------------------ ------------------------------                   
+Caiyi                          Ventus                                           
+IU                             Caiyi                                            
+Taeyeon                        IU                                               
+Ventus                         Ziyu                                             
+Ziyu                           Taeyeon                                          
+
+SQL> select * from donates;
+
+REGISTEREDUSER_USERNAME        STREAMER_USERNAME              TRANSACTIONNO     
+------------------------------ ------------------------------ -------------     
+    AMOUNT                                                                      
+----------                                                                      
+Caiyi                          IU                                         1     
+      6666                                                                      
+                                                                                
+Caiyi                          IU                                         2     
+      6666                                                                      
+                                                                                
+Caiyi                          IU                                         3     
+      6666                                                                      
+                                                                                
+
+REGISTEREDUSER_USERNAME        STREAMER_USERNAME              TRANSACTIONNO     
+------------------------------ ------------------------------ -------------     
+    AMOUNT                                                                      
+----------                                                                      
+Caiyi                          IU                                         4     
+      6666                                                                      
+                                                                                
+Caiyi                          IU                                         5     
+      6666                                                                      
+                                                                                
+
+SQL> select * from channels;
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+Caiyi                                   1            1 banned                   
+Chinese                                                                         
+hello world                                                                     
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+                                                                                
+Let us play Overwatch                                                           
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+Overwatch                                                                       
+                                                                                
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+Ventus                                  1            1 offline                  
+Chinese                                                                         
+hello world                                                                     
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+                                                                                
+Let us play Counter-Strike                                                      
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+Counter-Strike                                                                  
+                                                                                
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+Ziyu                                    1            1 offline                  
+English                                                                         
+hello world                                                                     
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+                                                                                
+Let us play DOTA                                                                
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+DOTA 2                                                                          
+                                                                                
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+Taeyeon                                 1            1 online                   
+Korean                                                                          
+hello world                                                                     
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+                                                                                
+Why                                                                             
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+Singing                                                                         
+                                                                                
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+IU                                      1            1 online                   
+Korean                                                                          
+hello world                                                                     
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+                                                                                
+23                                                                              
+
+STREAMER_NAME                          ID NUMOFVIEWERS STATUS                   
+------------------------------ ---------- ------------ ----------               
+LANGUAGE                                                                        
+------------------------------                                                  
+DESCRIPTION                                                                     
+--------------------------------------------------------------------------------
+TITLE                                                                           
+--------------------------------------------------------------------------------
+TYPE_NAME                                                                       
+------------------------------                                                  
+                                                                                
+Outdoors                                                                        
+                                                                                
